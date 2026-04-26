@@ -1,0 +1,47 @@
+/dts-v1/;
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/mouse.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+        label = "K1012 Right Keymap";
+
+        default_layer {  // Layer 0 - BASE
+            bindings = <
+                &kp X &kp P &kp ENTER &kp TAB &kp LCTRL &kp LALT &kp MINUS &kp MS_UP
+                &kp Q &kp D &kp T &kp N &kp S &mkp RMB &mo 2 &kp MS_DN
+                &kp B &kp F &kp A &kp L &kp Y &kp LSFT &kp BSLASH &kp MS_LT
+                &mkp LMB &kp H &kp SPC &kp J &kp SCOLON &mo 1 &kp LWIN &kp MS_RT
+            >;
+        };
+
+        num_layer {  // Layer 1 - NUM
+            bindings = <
+                &kp LBRC &kp N8 &trans &trans &trans &trans &kp PGUP &kp MW_UP
+                &kp RBRC &kp N0 &kp N2 &kp N5 &trans &trans &kp PGDN &kp MW_DN
+                &kp LPRN &kp N7 &kp N1 &kp N4 &kp EQUAL &trans &kp HOME &kp MW_LT
+                &kp RPRN &kp N9 &kp N3 &kp N6 &kp DOT &trans &kp END &kp MW_RT
+            >;
+        };
+
+        fun_layer {  // Layer 2 - FUN
+            bindings = <
+                &kp F11 &kp F8 &trans &trans &trans &trans &kp PGUP &kp MS_UP
+                &trans &kp F10 &kp F2 &kp F5 &trans &trans &kp PGDN &kp MS_DN
+                &trans &kp F7 &kp F1 &kp F4 &trans &trans &kp HOME &kp MS_LT
+                &kp F12 &kp F9 &kp F3 &kp F6 &trans &trans &kp END &kp MS_RT
+            >;
+        };
+
+        mouse_layer {  // Layer 3 - MS
+            bindings = <
+                &mo 3 &kp V &kp BSPC &kp DEL &kp LCTRL &kp LALT &kp EQUAL &kp MS_UP
+                &kp Q &kp D &kp MS_DN &kp N &kp S &mkp RMB &mo 2 &kp MS_DN
+                &kp B &kp F &kp MS_LT &kp L &kp Y &kp LSFT &kp BSLASH &kp MS_LT
+                &mkp LMB &kp H &kp MS_RT &kp J &kp SCOLON &mo 1 &kp LWIN &kp MS_RT
+            >;
+        };
+    };
+};
