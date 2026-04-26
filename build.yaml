@@ -20,6 +20,10 @@
 ---
 include:
   - board: rp2350b_core/rp2350b/m33
-    shield: k1012_left
+    shield: k1012
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+    artifact-name: k1012_left
   - board: rp2350b_core/rp2350b/m33
-    shield: k1012_right
+    shield: k1012
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: k1012_right
