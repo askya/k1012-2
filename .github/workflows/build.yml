@@ -3,4 +3,29 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - board: rp2350b
+            shield: k1012_left
+          - board: rp2350b
+            shield: k1012_right
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install jsonschema
+        run: pip install jsonschema
+      - name: West Init
+        run: |
+          pip install west
+          west init -l config
+          west update
+      - name: Build
+        run: |
+          west build -d build/${{ matrix.shield }} -b ${{ matrix.board }} -- -DSHIELD=${{ matrix.shield }}
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-${{ matrix.shield }}
+          path: build/${{ matrix.shield }}/zephyr/zmk.uf2
