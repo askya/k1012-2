@@ -1,0 +1,22 @@
+manifest:
+  defaults:
+    revision: v0.3
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: zephyrprojectrtos
+      url-base: https://github.com/zephyrproject-rtos
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      import: app/west.yml
+      revision: main
+    - name: zephyr
+      remote: zephyrprojectrtos
+      revision: v4.4.0
+      import: boards/boards.yml  # Only import board definitions
+      # Skip: import: true (which would import everything)
+
+  self:
+    path: config
+
