@@ -8,6 +8,7 @@
 
     chosen {
         zmk,kscan = &kscan_direct;
+        zmk,split-transport = &split_usart;
     };
 
     kscan_direct: kscan {
@@ -48,7 +49,11 @@
             , <&gpio0 10 GPIO_ACTIVE_LOW>
             , <&gpio0 28 GPIO_ACTIVE_LOW>
             , <&gpio0 24 GPIO_ACTIVE_LOW>
-            , <&gpio0 15 GPIO_ACTIVE_LOW>
             ;
+    };
+    split_usart: split {
+        compatible = "zmk,split-transport-usart";
+        tx-pin = <&gpio0 11 GPIO_ACTIVE_LOW>;  // Remplacez XX par le pin TX
+        rx-pin = <&gpio0 13 GPIO_ACTIVE_LOW>;  // Remplacez YY par le pin RX
     };
 };
