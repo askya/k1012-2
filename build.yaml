@@ -19,7 +19,7 @@
 #
 ---
 include:
-  - board: rp2350b_core/rp2350b/m33
+  - board: rp2350b_core
     shield: k1012_left
-  - board: rp2350b_core/rp2350b/m33
+  - board: rp2350b_core
     shield: k1012_right
